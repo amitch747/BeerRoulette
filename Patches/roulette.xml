@@ -5,27 +5,25 @@
     <Operation Class="PatchOperationReplace">
         <xpath>/Defs/ThoughtDef[defName="Inebriated"]/stages</xpath>
         <value>
-            <li>
-                <label>Addrenalin Rush</label>
-                <description>What a rush!</description>
-                <baseMoodEffect>30</baseMoodEffect>
-            </li>
+            <stages>
+                <li>
+                    <label>adrenaline rush</label>
+                    <description>What a rush!</description>
+                    <baseMoodEffect>30</baseMoodEffect>
+                </li>
+            </stages>
         </value>
     </Operation>
 
-    <!-- Melee Explosion 1/6 -->
+
 
     <!-- Drink Explosion 1/6 -->
-
-    <!-- Explodes on destruction -->
     <Operation Class="PatchOperationAdd">
         <xpath>/Defs/ThingDef[defName="Beer"]/comps</xpath>
         <value>
-            <li Class="CompProperties_Explosive">
-                <explosiveRadius>1.9</explosiveRadius>
-                <explosiveDamageType>Bomb</explosiveDamageType>
-                <startWickHitPointsPercent>1.0</startWickHitPointsPercent>
-                <wickTicks>10~20</wickTicks>
+            <li Class="BeerRoulette.CompProperties_BeerRoulette">
+                <explosionChance>0.1667</explosionChance>
+                <explosionRadius>1.9</explosionRadius>
             </li>
         </value>
     </Operation>
