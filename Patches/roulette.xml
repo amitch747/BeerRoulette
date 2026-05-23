@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
 
+    <!-- Mood buff -->
+    <Operation Class="PatchOperationReplace">
+        <xpath>/Defs/ThoughtDef[defName="Inebriated"]/stages</xpath>
+        <value>
+            <li>
+                <label>Addrenalin Rush</label>
+                <description>What a rush!</description>
+                <baseMoodEffect>30</baseMoodEffect>
+            </li>
+        </value>
+    </Operation>
+
+    <!-- Melee Explosion 1/6 -->
+
+    <!-- Drink Explosion 1/6 -->
+
+    <!-- Explodes on destruction -->
     <Operation Class="PatchOperationAdd">
         <xpath>/Defs/ThingDef[defName="Beer"]/comps</xpath>
         <value>
@@ -8,17 +25,7 @@
                 <explosiveRadius>1.9</explosiveRadius>
                 <explosiveDamageType>Bomb</explosiveDamageType>
                 <startWickHitPointsPercent>1.0</startWickHitPointsPercent>
-                <wickTotalTime>0.5</wickTotalTime>
-            </li>
-        </value>
-    </Operation>
-
-    <Operation Class="PatchOperationAdd">
-        <xpath>/Defs/ThingDef[defName="Beer"]/ingestible/outcomeDoers</xpath>
-        <value>
-            <li Class="IngestionOutcomeDoer_GiveHediff">
-                <chance>0.1667</chance>
-                <hediffDef>HeartAttack</hediffDef>
+                <wickTicks>10~20</wickTicks>
             </li>
         </value>
     </Operation>
