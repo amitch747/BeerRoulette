@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!--New capacity-->
+  <ToolCapacityDef>
+    <defName>BeerRouletteSmash</defName>
+    <label>beer smash</label>
+  </ToolCapacityDef>
+
+    <!--Since it has requiredCapacity, this will be used-->
+  <ManeuverDef>
+    <defName>BeerSmash</defName>
+    <requiredCapacity>BeerRouletteSmash</requiredCapacity>
+    <verb>
+      <verbClass>BeerRoulette.Verb_MeleeBeerRoulette</verbClass>
+      <meleeDamageDef>Blunt</meleeDamageDef>
+    </verb>
+    <logEntryDef>MeleeAttack</logEntryDef>
+    <combatLogRulesHit>Maneuver_Smash_MeleeHit</combatLogRulesHit>
+    <combatLogRulesDeflect>Maneuver_Smash_MeleeDeflect</combatLogRulesDeflect>
+    <combatLogRulesMiss>Maneuver_Smash_MeleeMiss</combatLogRulesMiss>
+    <combatLogRulesDodge>Maneuver_Smash_MeleeDodge</combatLogRulesDodge>
+  </ManeuverDef>
+
+</Defs>

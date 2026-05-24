@@ -5,7 +5,7 @@ namespace BeerRoulette
 {
     public class CompProperties_BeerRoulette : CompProperties
     {
-        public float explosionChance = 1f / 6f;
+        public float explosionChance = 1f / 10f;
         public float explosionRadius = 0.9f;
 
         public CompProperties_BeerRoulette()

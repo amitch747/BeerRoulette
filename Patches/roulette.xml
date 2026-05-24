@@ -9,7 +9,7 @@
                 <li>
                     <label>adrenaline rush</label>
                     <description>What a rush!</description>
-                    <baseMoodEffect>60</baseMoodEffect>
+                    <baseMoodEffect>50</baseMoodEffect>
                 </li>
             </stages>
         </value>
@@ -22,10 +22,22 @@
         <xpath>/Defs/ThingDef[defName="Beer"]/comps</xpath>
         <value>
             <li Class="BeerRoulette.CompProperties_BeerRoulette">
-                <explosionChance>0.1667</explosionChance>
-                <explosionRadius>1.9</explosionRadius>
+                <explosionChance>0.1</explosionChance>
+                <explosionRadius>0.9</explosionRadius>
             </li>
         </value>
     </Operation>
+
+
+    <Operation Class="PatchOperationReplace">
+        <!--Replacing capacity of bottle on Beer with custom capacity-->
+        <xpath>/Defs/ThingDef[defName="Beer"]/tools/li[label="bottle"]/capacities</xpath>
+        <value>
+            <capacities>
+                <li>BeerRouletteSmash</li>
+            </capacities>
+        </value>
+    </Operation>
+
 
 </Patch>
