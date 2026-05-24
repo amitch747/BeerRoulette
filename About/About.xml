@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.1" encoding="utf-8"?>
 <ModMetaData>
     <name>Beer Roulette</name> <!-- The name of your mod in the mod list -->
     <author>dogsauce</author>
@@ -7,6 +7,6 @@
     </supportedVersions>
     <packageId>beer.dogsauce</packageId> <!-- a unique identifier for your mod. Must contain only a-z and periods, no spaces. -->
     <description>
-Welcome to the west...
+    Small small chance there is something unsafe in the beer. Knowing this turns an ordinary social activity (drinking beer) into a so-cool activity! What a rush!
     </description>
 </ModMetaData>
