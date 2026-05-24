@@ -6,7 +6,7 @@ namespace BeerRoulette
     public class CompProperties_BeerRoulette : CompProperties
     {
         public float explosionChance = 1f / 6f;
-        public float explosionRadius = 1.9f;
+        public float explosionRadius = 0.9f;
 
         public CompProperties_BeerRoulette()
         {
@@ -23,9 +23,12 @@ namespace BeerRoulette
         {
             // normal beer
             base.PostIngested(ingester); 
+            //Log.Message($"[BeerRoulette] {ingester.LabelShort} took a chance");
             // special beer
             if (Rand.Value < Props.explosionChance) 
             {
+                //Log.Message($"[BeerRoulette] {ingester.LabelShort} was taken by chance");
+
                 GenExplosion.DoExplosion(
                     center: ingester.Position,
                     map: ingester.Map,
@@ -39,13 +42,23 @@ namespace BeerRoulette
 
     public class Verb_MeleeBeerRoulette : Verb_MeleeAttackDamage
     {
+        public Verb_MeleeBeerRoulette()
+        {
+            Log.Message("[BeerRoulette] Verb_MeleeBeerRoulette constructed");
+        }
+
         protected override DamageWorker.DamageResult ApplyMeleeDamageToTarget(LocalTargetInfo target)
         {
+            //Log.Message($"[BeerRoulette] ApplyMeleeDamageToTarget called. Tool={tool?.label ?? "null"}, Caster={CasterPawn?.LabelShort ?? "null"}");
+
             DamageWorker.DamageResult damageResult = base.ApplyMeleeDamageToTarget(target);
 
             CompBeerRoulette comp = EquipmentSource?.GetComp<CompBeerRoulette>();
+            //Log.Message($"[BeerRoulette] EquipmentSource={EquipmentSource?.Label ?? "null"}, comp={(comp != null ? "found" : "null")}");
+
             if (comp != null && Rand.Value < comp.Props.explosionChance)
             {
+                //Log.Message($"[BeerRoulette] EXPLODING on {target.Label}");
                 GenExplosion.DoExplosion(
                     center: target.Cell,
                     map: CasterPawn.Map,
@@ -57,7 +70,6 @@ namespace BeerRoulette
 
             return damageResult;
         }
-        
-    }
+}
 
 }
