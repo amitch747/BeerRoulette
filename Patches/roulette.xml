@@ -9,7 +9,7 @@
                 <li>
                     <label>adrenaline rush</label>
                     <description>What a rush!</description>
-                    <baseMoodEffect>30</baseMoodEffect>
+                    <baseMoodEffect>60</baseMoodEffect>
                 </li>
             </stages>
         </value>

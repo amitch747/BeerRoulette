@@ -36,4 +36,28 @@ namespace BeerRoulette
             }
         }
     }
+
+    public class Verb_MeleeBeerRoulette : Verb_MeleeAttackDamage
+    {
+        protected override DamageWorker.DamageResult ApplyMeleeDamageToTarget(LocalTargetInfo target)
+        {
+            DamageWorker.DamageResult damageResult = base.ApplyMeleeDamageToTarget(target);
+
+            CompBeerRoulette comp = EquipmentSource?.GetComp<CompBeerRoulette>();
+            if (comp != null && Rand.Value < comp.Props.explosionChance)
+            {
+                GenExplosion.DoExplosion(
+                    center: target.Cell,
+                    map: CasterPawn.Map,
+                    radius: comp.Props.explosionRadius,
+                    damType: DamageDefOf.Bomb,
+                    instigator: CasterPawn
+                );
+            }
+
+            return damageResult;
+        }
+        
+    }
+
 }
